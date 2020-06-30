@@ -4,8 +4,8 @@
     <test verbose="2" name="TestGroups">
         <groups>
             <run>
-                <include name="group01" />
-<!--                <exclude name="group02" />-->
+                <include name="groups01" />
+<!--                <exclude name="groups02" />-->
             </run>
         </groups>
         <classes>
