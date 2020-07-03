@@ -1,4 +1,5 @@
 # Junit5
+[官方网站](https://junit.org/junit5/)
 Junit5 由JUnit Platform + JUnit Jupiter + JUnit Vintage3部分构成，借用 IBM Developer 的一张图来说明 JUnit 5 的架构：
 ![image](./image/junit5架构.jpg)
 
@@ -41,3 +42,17 @@ JUnit 5 对 Java 运行环境的最低要求是 Java 8。
 |@Tag|为测试类或方法添加标签|
 |@RepeatedTest|额外重复执行|
 |@Nested|嵌套执行|
+
+## 参数化
+- @ValueSource
+- @EnumSource
+- @MethodSource
+- @CsvSource
+- @CsvFileSource
+- @ArgumentsSource
+
+## 动态测试用例
+-  dynamicTest
+
+# Allure
+[官方文档](https://docs.qameta.io/allure/)
