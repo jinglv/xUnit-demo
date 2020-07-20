@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
  */
 public class Demo_DyamicTest {
 
-    public boolean isPalindrome(String str){
+    public boolean isPalindrome(String str) {
         return true;
     }
 
@@ -61,7 +61,7 @@ public class Demo_DyamicTest {
 
     @TestFactory
     DynamicTest[] dynamicTestsFromArray() {
-        return new DynamicTest[] {
+        return new DynamicTest[]{
                 dynamicTest("7th dynamic test", () -> assertTrue(isPalindrome("madam"))),
                 dynamicTest("8th dynamic test", () -> assertEquals(4, 4))
         };
