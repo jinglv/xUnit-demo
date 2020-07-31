@@ -42,7 +42,11 @@ public class CalculateTest {
         assertEquals(200, result);
     }
 
+    /**
+     * 测试用例已禁用
+     */
     @Test
+    @Ignore(value = "除法测试已禁用")
     public void divide() {
         int result = calculate.divide(b, 10);
         assertEquals(2, result);

@@ -12,7 +12,7 @@ Junit5 由JUnit Platform + JUnit Jupiter + JUnit Vintage3部分构成，借用 I
 ### JUnit Vintage:
 Junit发展了10数年，Junit 3和 Junit 4都积累了大量的用户，作为新一代框架，这个模块是对JUnit3，JUnit4 版本兼容的测试引擎，使旧版本junit的自动化测试脚本也可以顺畅运行在Junit5下，它也可以看作是基于Junit Platform实现的引擎范例。
 
-JUnit 5 对 Java 运行环境的最低要求是 Java 8。
+JUnit5对Java运行环境的最低要求是Java 8。
 
 ## Junit5 的新特性
 - 嵌套单元测试
@@ -93,12 +93,12 @@ JUnit5 提供了4个生命周期注解 @BeforeAll @AfterAll @BeforeEach @AfterEa
 - @AfterAll @AfterEach：与before类似，在测试用例之后执行
 
 ## 参数化
-- @ValueSource
-- @EnumSource
-- @MethodSource
-- @CsvSource
-- @CsvFileSource
-- @ArgumentsSource
+- @ValueSource:注入String内容
+- @EnumSource:注入枚举类
+- @MethodSource:通过方法名注入
+- @CsvSource:csv源支持
+- @CsvFileSource:csv文件导入
+- @ArgumentsSource:通过自定义的参数提供器导入
 
 ## 动态测试用例
 -  dynamicTest
