@@ -15,7 +15,7 @@ import org.junit.jupiter.api.*;
  * PER_CLASS：每个类的测试用例执行前，创建统一的实例
  *
  * @author jingLv
- * @date 2020-07-31 3:44 下午
+ * @date 2020/07/31
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -33,7 +33,7 @@ public class DemoLifecycleTest {
     }
 
     @Test
-    @Order(1)
+    @Order(2)
     void doTest1() {
         System.out.println("num is" + num);
         num = 1;
@@ -41,7 +41,7 @@ public class DemoLifecycleTest {
     }
 
     @Test
-    @Order(2)
+    @Order(1)
     void doTest2() {
         System.out.println("num is" + num);
         num = 2;

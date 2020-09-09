@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * 使用@DisplayNameGeneration()，进行更多的配置
  *
  * @author jingLv
- * @date 2020-07-31 3:25 下午
+ * @date 2020/07/31
  */
 @DisplayNameGeneration(DemoDisplayName2.ReplaceUnderscores.class)
 public class DemoDisplayName2 {

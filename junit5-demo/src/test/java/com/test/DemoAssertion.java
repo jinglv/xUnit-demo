@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 /**
  * @author jingLv
- * @date 2020-07-03 5:05 下午
+ * @date 2020/07/03
  */
 public class DemoAssertion {
 

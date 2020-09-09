@@ -17,7 +17,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
  * - @ParameterizedTest 很实用的注解，需要junit-jupiter-params依赖
  *
  * @author jingLv
- * @date 2020-07-31 4:16 下午
+ * @date 2020/07/31
  */
 public class DemoParameterized {
 

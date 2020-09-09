@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
  * 动态测试用例
  *
  * @author jingLv
- * @date 2020-07-03 5:30 下午
+ * @date 2020/07/03
  */
 public class DemoDyamicTest {
 
