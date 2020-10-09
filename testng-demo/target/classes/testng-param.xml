@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="params">
+    <test name="test">
+        <classes>
+            <class name="com.test.DemoParamTest">
+                <methods>
+                    <include name="testParams"></include>
+                </methods>
+            </class>
+
+            <parameter name="name" value="张大力"></parameter>
+            <parameter name="age" value="21"></parameter>
+        </classes>
+    </test>
+</suite>
+

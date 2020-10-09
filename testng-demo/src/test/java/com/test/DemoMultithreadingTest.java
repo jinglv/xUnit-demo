@@ -3,10 +3,14 @@ package com.test;
 import org.testng.annotations.Test;
 
 /**
+ * TestNG多线程测试
+ * - 配置方式
+ * - 注解方式
+ *
  * @author jingLv
  * @date 2020-06-30 5:55 下午
  */
-public class Demo_Multithreading {
+public class DemoMultithreadingTest {
     @Test
     public void putInA() throws InterruptedException {
         Thread.sleep(1000);

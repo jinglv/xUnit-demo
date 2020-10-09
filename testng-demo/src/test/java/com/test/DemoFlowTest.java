@@ -3,18 +3,20 @@ package com.test;
 import org.testng.annotations.*;
 
 /**
+ * TestNG流程测试
+ *
  * @author jingLv
  * @date 2020-06-30 5:16 下午
  */
-public class Demo_Flow {
+public class DemoFlowTest {
 
     @BeforeSuite
-    public void beforeSuite(){
+    public void beforeSuite() {
         System.out.println("This is BeforeSuite");
     }
 
     @AfterSuite
-    public void afterSuite(){
+    public void afterSuite() {
         System.out.println("This is AfterSuite");
     }
 
@@ -39,22 +41,22 @@ public class Demo_Flow {
     }
 
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         System.out.println("This is BeforeMethod");
     }
 
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         System.out.println("This is AfterMethod");
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         System.out.println("This is Test1");
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         System.out.println("This is Test2");
     }
 }

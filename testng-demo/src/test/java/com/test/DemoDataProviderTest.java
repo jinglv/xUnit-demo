@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
  * @author jingLv
  * @date 2020-06-30 6:00 下午
  */
-public class Demo_DataProvider {
+public class DemoDataProviderTest {
 
     @DataProvider(name = "putInList")
     public Object[][] putInList() {

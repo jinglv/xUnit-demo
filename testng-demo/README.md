@@ -5,9 +5,9 @@
 
 **TestNG**是一个测试框架，其灵感来自JUnit和NUnit，但引入了一些新的功能，使其功能更强大，使用更方便。
 
-TestNG是一个开源自动化测试框架;TestNG表示**下一代**(**N**ext **G**eneration的首字母)。 TestNG类似于JUnit(特别是JUnit 4)，但它不是JUnit框架的扩展。它的灵感来源于JUnit。它的目的是优于JUnit，尤其是在用于测试集成多类时。 TestNG的创始人是**Cedric Beust**(塞德里克·博伊斯特)。
+TestNG是一个**开源自动化测试框架**;TestNG表示**下一代**(**N**ext **G**eneration的首字母)。 TestNG类似于JUnit(特别是JUnit 4)，但它不是JUnit框架的扩展。它的灵感来源于JUnit。它的目的是优于JUnit，尤其是在用于测试集成多类时。 TestNG的创始人是**Cedric Beust**(塞德里克·博伊斯特)。
 
-TestNG消除了大部分的旧框架的限制，使开发人员能够编写更加灵活和强大的测试。 因为它在很大程度上借鉴了Java注解(JDK5.0引入的)来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。
+TestNG消除了大部分的旧框架的限制，使开发人员能够编写更加**灵活**和**强大**的**测试**。 因为它在很大程度上借鉴了Java注解(JDK5.0引入的)来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。
 
 ## TestNG特点
 
@@ -42,7 +42,7 @@ TestNG消除了大部分的旧框架的限制，使开发人员能够编写更�
 | @Test         | 将类或方法标记为测试的一部分。                               |
 
 ### TestNG执行流程
-![image](./image/TestNG执行.png)
+![image-20201009130614443](https://gitee.com/JeanLv/study_image/raw/master///image-20201009130614443.png)
 
 ### TestNG忽略测试
 有时候我们只想运行部分测试用例，在这种情况下，@Test(enabled=fasle)有助于禁用某些测试用例。被标注的测试用例将不会被执行，此参数默认值为true。
@@ -68,8 +68,66 @@ threadPoolSize被设为3，这就说明了该测试方法将会在三个不同�
 ### TestNG参数化
 需要传递复杂参数，或者参数需要从Java中创建（如复杂对象，从属性文件或这数据库中读取对象），可以使用Data Provider来给需要的测试提供参数。所谓数据提供者，就是一个能返回对象数组的方法，并且这个方法被@Data Provider注解标注
 
+### TestNG顺序执行
+TestNG默认执行顺序是以方法名称首字母
+
+`@Test`注解中的参数`priority`指定的数字由小到大执行
+
+### TestNG的配置
+在工程的main/resources目录下创建一个testng.xml文件，进行配置
+
+配置执行方式：鼠标在配置文件（xxx.xml）右击 --> 点击【Run】
+
+#### TestNG的多线程配置方式
+- TestNG Suite设置：`<suite name="threading" parallel="tests" thread-count="5">`
+    - parallel并行模式
+        - tests：TestNG会在相同的线程中运行相同<test>标记下的所有方法，但每个<test>下的方法会运行在不同的线程下。
+        - methods：TestNG会在不同的线程中运行测试方法，除非那些互相依赖的方法。那些相互依赖的方法会运行在同一个线程中，并且遵照其执行顺序。
+        - classes：TestNG会在相同线程中相同类中的运行所有的方法，但是每个类都会用不同的线程运行。
+    - thread-count：允许你为当前的执行指定可以运行的**线程数量**。
+
+#### TestNG的参数化配置方式
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="params">
+    <test name="test">
+        <classes>
+            <class name="com.test.DemoParamTest"/>
+
+            <parameter name="name" value="张大力"/>
+            <parameter name="age" value="21"/>
+        </classes>
+    </test>
+</suite>
+```
+注意：parameter一般要写在class之下，不然TestNG执行无法找到参数。
+
+#### TestNG顺序执行配置
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="priority">
+    <test name="order">
+        <classes>
+            <!--指定Case顺序执行-->
+            <class name="com.test.DemoOrderTest">
+                <methods>
+                    <include name="testB"/>
+                    <include name="testA"/>
+                    <include name="testC"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+```
+注意：如果priority和配置方式同时存在，最终是以priority方式进行执行
+
+    
 ## TestNG实战
-## 数据特性测试
+### 数据特性测试
+
 - testNG数据驱动覆盖数据特性
     - 表格是解决批量编辑的好方法
     - 可以切换不同参数文件快速切换多套参数方案
@@ -77,11 +135,11 @@ threadPoolSize被设为3，这就说明了该测试方法将会在三个不同�
     
 ### 线程安全测试
 #### 线程安全问题原理
-![image](./image/线程安全问题原理.png)
+![image-20201009130831223](https://gitee.com/JeanLv/study_image/raw/master///image-20201009130831223.png)
 什么是线程安全？通俗的说，就是保证多个线程同时对某一对象进行操作时不会出错。比如两个客户端，同时对某个课程进行报名操作并记录总数，如果不加以并发控制，那么就会出现对当前报名总数脏读的情况
 
 #### 分布式线程安全问题原理
-![image](./image/分布式线程安全问题原理.png)
+![image-20201009130936034](https://gitee.com/JeanLv/study_image/raw/master///image-20201009130936034.png)
 当服务器是分布式集群形式时，会产生一个问题，当多个订单请求打到不同的服务器上，而多个服务器对已定课程总数的读取过程中产生脏读问题，就叫做分布式锁问题
 
 线程安全性问题出现的三个必要条件
@@ -95,7 +153,7 @@ threadPoolSize被设为3，这就说明了该测试方法将会在三个不同�
 注意：测试环境的单点（在测试环境中不易发现分布式锁），线上环境的集群
 
 ### 并发场景测试案例
-![image](./image/并发场景.png)
+![image-20201009131010652](https://gitee.com/JeanLv/study_image/raw/master///image-20201009131010652.png)
 并发场景与性能测试的区别
 
 |-|性能测试|并发场景测试|

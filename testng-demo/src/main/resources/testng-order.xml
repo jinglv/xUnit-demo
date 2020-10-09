@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="priority">
+    <test name="order">
+        <classes>
+            <!--指定Case顺序执行-->
+            <class name="com.test.DemoOrderTest">
+                <methods>
+                    <include name="testB"/>
+                    <include name="testA"/>
+                    <include name="testC"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+

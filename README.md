@@ -36,7 +36,7 @@ xUnit 是一系列测试框架的统称，最开始来源于一个叫做 Smallta
     - 可以通过注解设置顺序Order
     
 ## 测试套件的执行顺序支持
-![image](image/xUnit执行顺序.png)
+![image-20201009131109902](https://gitee.com/JeanLv/study_image/raw/master///image-20201009131109902.png)
 - JUnit4
     - @BeforeClass、@AfterClass
     - @Before、@After
