@@ -1,5 +1,6 @@
 package com.test;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicNode;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
@@ -13,6 +14,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.DynamicContainer.dynamicContainer;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
+import static org.junit.jupiter.api.DynamicTest.stream;
 
 /**
  * 动态测试用例
@@ -20,7 +22,7 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
  * @author jingLv
  * @date 2020/07/03
  */
-public class DemoDyamicTest {
+public class DemoDynamicTestCase {
 
     public boolean isPalindrome(String str) {
         return true;
@@ -109,7 +111,7 @@ public class DemoDyamicTest {
         ThrowingConsumer<Integer> testExecutor = (input) -> assertTrue(input % 7 != 0);
 
         // Returns a stream of dynamic tests.
-        return DynamicTest.stream(inputGenerator, displayNameGenerator, testExecutor);
+        return stream(inputGenerator, displayNameGenerator, testExecutor);
     }
 
     @TestFactory
@@ -135,5 +137,20 @@ public class DemoDyamicTest {
                 Stream.of("racecar", "radar", "mom", "dad")
                         .map(text -> dynamicTest(text, () -> assertTrue(isPalindrome(text)))
                         ));
+    }
+
+    @TestFactory
+    @DisplayName("基础动态测试")
+    Collection<DynamicTest> simpleDynamicTest() {
+        return Collections.singleton(dynamicTest("simple dynamic test", () -> assertTrue(2 > 1)));
+    }
+
+    @TestFactory
+    public Stream<DynamicTest> streamDynamicTest() {
+        return stream(
+                Stream.of("Hello", "World").iterator(),
+                (word) -> String.format("Test - %s", word),
+                (word) -> assertTrue(word.length() > 4)
+        );
     }
 }
