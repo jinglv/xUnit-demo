@@ -5,6 +5,8 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 /**
+ * 并发测试
+ *
  * @author jingLv
  * @date 2021/01/06
  */

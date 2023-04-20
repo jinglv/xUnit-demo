@@ -4,7 +4,7 @@
     <test name="order">
         <classes>
             <!--指定Case顺序执行-->
-            <class name="com.test.DemoPriorityTest">
+            <class name="com.test.DemoOrderTest">
                 <methods>
                     <include name="testB"/>
                     <include name="testA"/>

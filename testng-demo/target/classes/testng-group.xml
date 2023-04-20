@@ -3,8 +3,13 @@
 <suite name="Suite">
     <test verbose="2" name="TestGroups">
         <groups>
-            <run>
+            <define name="all">
                 <include name="groups01"/>
+                <include name="groups02"/>
+            </define>
+            <run>
+                <include name="all"/>
+                <!--                <include name="groups01"/>-->
                 <!--                <exclude name="groups02" />-->
             </run>
         </groups>
